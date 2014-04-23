@@ -11,7 +11,24 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+//Employee Routes
+Route::get('employee', 'EmployeeController@index');
+Route::get('employee/add', 'EmployeeController@employee_form');
+Route::post('employee_add', 'EmployeeController@add');
+Route::get('employee/manage/{id}', 'EmployeeController@manage');
+Route::post('employee/manage/save', 'EmployeeController@manage_save');
+Route::get('search_form', 'EmployeeController@search_form');
+Route::post('search', 'EmployeeController@search');
+
+//User Routes
+Route::get('admin_login', 'UserController@login');
+Route::any('logout', 'UserController@logout');
+Route::post('authenticate', 'UserController@authenticate');
+
+//Questions Routes
+Route::get('code/{code}', 'QuestionController@index');
+
+//Answer Routes:
+Route::post('survey/answer', 'AnswerController@save');
+Route::get('thankyou', 'AnswerController@thankyou');
+
