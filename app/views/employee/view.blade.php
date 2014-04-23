@@ -13,7 +13,7 @@
 	<table class="large-12">
 		<thead>
 			<tr>
-				<th class="large-3">Code</th>
+				<th class="large-3">Link</th>
 				<th class="large-3">First Name</th>
 				<th class="large-3">Last Name</th>
 				<th class="large-3">Manage</th>
@@ -22,7 +22,7 @@
 		<tbody>
 			@foreach($lists as $employee)
 			<tr>
-				<td><h5><a href="#">{{ $employee->code }}</a></h5></td>
+				<td><h5><a href="{{ URL::to('code/' .  $employee->code ) }}">{{ $employee->code }}</a></h5></td>
 				<td>{{ $employee->fname }}</td>
 				<td>{{ $employee->lname }}</td>
 				<td><a href="{{ URL::to('employee/manage/' . $employee->id ); }}" data-tooltip class="has-tip tip-right" title="Settings"><i class="general foundicon-settings"></i></a></td>
